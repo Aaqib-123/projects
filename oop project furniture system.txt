@@ -1,0 +1,596 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class client_need                                     //base class Employ need 
+{
+protected:
+	int price;
+	string type_of_wood;
+public:
+	
+	 client_need()
+	 {
+		price=0;
+		for(int i=0;i<4;i++)
+		 {
+			
+			 type_of_wood=" ";
+		 }
+	 }
+	 void setprice()
+	 {
+		 price=15000;
+	 }
+	 int getprice()
+	 {
+		 return price;
+	 }
+	 string settype_of_wood(int choice)
+	 {
+	 	
+		 if(choice==1)
+			return	type_of_wood="cedar";
+				else if(choice==2)
+					return	 type_of_wood="walnut";
+						else  if(choice==3)
+							return type_of_wood="Oak";
+								else  if(choice==4)
+									return type_of_wood="Teak";
+	 }
+
+	 string gettype_of_wood()
+	 {
+		return type_of_wood;
+	 }
+	virtual void show()=0;
+};
+class window:public client_need
+{
+protected:
+	string type;										//type is used to get the type of wood he want to use
+	int windows;									//windows is used to get no of windows he want to  built
+	float length;
+	float width;
+public:
+	
+	window()
+	{}
+	window(string a,int b,float c,float d)
+	{
+		
+		type=a;
+		windows=b;
+		length=c;
+		width=d;
+	}
+	
+	
+
+	
+
+	void setPrice()
+	{
+		
+		if(type=="cedar")				//first if condition is for wood type selection 2nd for length and width and third for no of windows
+		{
+			if((length<56) && (width<30))				//Normal length of windows is 48to56 and width is 24to30
+			{
+				if(windows>1)
+				{
+			price=(15000)*windows;
+			cout<<"Price of one window : " <<15000<<endl;
+				}else price=15000;
+
+
+			}else if((length>56) &&(width>30))
+			{
+				if(windows>1)
+				{
+					price=(15000+5000)*windows;
+					cout<<"Price of one window : " <<20000<<endl;
+				}else price=(15000+5000);
+			}
+
+		}else if(type=="walnut")
+		{
+
+			if((length<56) && (width<30))
+			{
+				if(windows>1)
+				{
+			      price=(14000)*windows;
+				  cout<<"Price of one window : " <<14000<<endl;
+				}else  price=14000;
+
+			}else if((length>56) &&(width>30))
+			{
+				if(windows>1)
+				{
+				price=(14000+4000)*windows;
+				cout<<"Price of one window : " <<18000<<endl;
+				}else price=(14000+4000);
+			}
+
+		}else if(type=="Oak")
+		{
+			if((length<56) && (width<30))
+			{
+				if(windows>1)
+				{
+			     price=(12000)*windows;
+				 cout<<"Price of one window : " <<12000<<endl;
+				}else price=12000;
+				}
+			else if((length>56) &&(width>30))
+			{
+				if(windows>1)
+				{
+				price=(12000+3000)*windows;
+				cout<<"Price of one window : " <<15000<<endl;
+				}else price=(12000+3000);
+			}
+
+		}else if(type=="Teak")
+		{
+			if((length<56) && (width<30))
+			{
+				if(windows>1)
+				{
+			price=(10000)*windows;
+			cout<<"Price of one window : " <<10000<<endl;
+				}else price=10000;
+			}
+			else if((length>56) &&(width>30))
+			{
+				if(windows>1)
+				{
+				price=(10000+2000)*windows;
+				cout<<"Price of one window : " <<12000<<endl;
+				}else price=(10000+2000);
+			}
+
+		
+		}
+	}
+
+	int getprice()
+	{
+			return price;
+
+	}
+	
+	void show()
+	{
+		cout<<"***********************************"<<endl;
+		cout<<"*******  WINDOWS   ****************"<<endl;
+		cout<<"The type of the wood is:"<<type<<endl;
+		cout<<"Quantity of Windows  : "<<windows<<endl;
+		cout<<"The size of the window is:"<<endl<<"length: "<<length<<" inches"<<endl<<"Width: "<<width<<" inches"<<endl;
+		cout<<"The total bill of your windows is:"<<getprice()<<endl;
+		cout<<"*************************************"<<endl;
+		cout<<"Thank You For Shoping"<<endl;
+		cout<<"*******************************"<<endl;
+		cout<<"Do you want futher (y/n)"<<endl;
+		cout<<"*******************************"<<endl;
+	    cout<<"*******************************"<<endl;
+		
+	}
+
+
+};
+
+class Doors:public client_need
+{
+protected:
+	string type;
+	int doors;						//doors is used to get no of doors he want to built
+	float length;
+	float width;
+public:
+	Doors()
+	{}
+	Doors(string a,int b,float c,float d)
+	{
+		
+		type=a;
+		doors=b;
+		length=c;
+		width=d;
+	}
+	
+		int setPrice()
+	{
+		price=0;
+
+		if(type=="cedar")				//first if condition is for wood type selection 2nd for length and width and third for no of doors
+		{
+			if((length<56) && (width<30))				//Normal length of doors is 48to56 and width is 24to30
+			{
+				if(doors>1)
+				{
+			price=(15000)*doors;
+			cout<<"Price of one door : " <<15000<<endl;
+				}else price=15000;
+
+
+			}else if((length>56) &&(width>30))
+			{
+				if(doors>1)
+				{
+					price=(15000+5000)*doors;
+					cout<<"Price of one door : " <<20000<<endl;
+				}else price=(15000+5000);
+			}
+
+		}else if(type=="walnut")
+		{
+
+			if((length<56) && (width<30))
+			{
+				if(doors>1)
+				{
+			      price=(14000)*doors;
+				  cout<<"Price of one door : " <<14000<<endl;
+				}else  price=14000;
+
+			}else if((length>56) &&(width>30))
+			{
+				if(doors>1)
+				{
+				price=(14000+4000)*doors;
+				cout<<"Price of one door : " <<18000<<endl;
+				}else price=(14000+4000);
+			}
+
+		}else if(type=="Oak")
+		{
+			if((length<56) && (width<30))
+			{
+				if(doors>1)
+				{
+			     price=(12000)*doors;
+				 cout<<"Price of one door : " <<12000<<endl;
+				}else price=12000;
+				}
+			else if((length>56) &&(width>30))
+			{
+				if(doors>1)
+				{
+				price=(12000+3000)*doors;
+				cout<<"Price of one door : " <<15000<<endl;
+				}else price=(12000+3000);
+			}
+
+		}else if(type=="Teak")
+		{
+			if((length<56) && (width<30))
+			{
+				if(doors>1)
+				{
+			price=(10000)*doors;
+			cout<<"Price of one door : " <<10000<<endl;
+				}else price=10000;
+			}
+			else if((length>56) &&(width>30))
+			{
+				if(doors>1)
+				{
+					
+				price=(10000+2000)*doors;
+				cout<<"Price of one door : " <<12000<<endl;
+				}
+				else price=(10000+2000);
+			}
+
+		
+		}
+		return price;
+	}
+	
+int getprice()
+	{
+			return price;
+
+	}
+	
+	void show()
+	{
+		cout<<"*****************************"<<endl;
+		cout<<"********   DOORS  **********"<<endl;
+		cout<<"The type of the wood is:"<<type<<endl;
+		cout<<"Quantities of Doors : "<<doors<<endl;
+		cout<<"The size of the doors is:"<<endl<<"length: "<<length<<" inches"<<endl<<"Width: "<<width<<" inches"<<endl;
+		cout<<"The total bill of your doors is:"<<setPrice()<<endl;
+		cout<<"********************************"<<endl;
+		cout<<"Thank You For Shoping"<<endl;
+		cout<<"*******************************"<<endl;
+		cout<<"Do you want futher (y/n)"<<endl;
+		cout<<"*******************************"<<endl;
+	    cout<<"*******************************"<<endl;
+		
+	}
+
+};
+
+class cabinets:public client_need
+{
+	protected:
+	string type;										
+	int cabinet;									
+public:
+	
+	cabinets()
+	{}
+	cabinets(string a,int b)
+	{
+		
+		type=a;
+		cabinet=b;
+	}
+	
+	
+
+	
+
+	void setPrice()
+	{
+		
+		if(type=="cedar")				
+		{
+			
+			price=4000*cabinet;
+			cout<<"Price of one cabinet is : " <<4000<<endl;
+				}
+
+
+		else if (type=="walnut")
+		{
+			      price=4500*cabinet;
+				  cout<<"Price of one cabinet is : " <<4500<<endl;
+				}
+		
+		
+		else if(type=="Oak")
+		{
+			
+			     price=5000*cabinet;
+				 cout<<"Price of one cabinet is : " <<5000<<endl;
+				}
+		
+		
+		
+		else if(type=="Teak")
+		{
+			
+			price=3500*cabinet;
+			cout<<"Price of one cabinet is : " <<3500<<endl;
+				}
+
+		
+		
+	}
+
+	int getprice()
+	{
+			return price;
+
+	}
+	
+	void show()
+	{
+		cout<<"*******************************"<<endl;
+		cout<<"**********  CABINET **********"<<endl;
+		cout<<"The type of the wood is:"<<type<<endl;
+		cout<<"Quantities of cabinets : "<<cabinet<<endl;
+		cout<<"The size of the each cabinets is 45 * 45 inches (standard) "<<endl;
+		cout<<"The total bill of your Cabinets is:"<<getprice()<<endl;
+		cout<<"**********************************"<<endl;
+		cout<<"Thank You For Shoping"<<endl;
+		cout<<"*******************************"<<endl;
+		cout<<"Do you want futher (y/n)"<<endl;
+		cout<<"*******************************"<<endl;
+	    cout<<"*******************************"<<endl;
+
+		
+	}
+
+	
+};
+
+
+class furneture:public client_need
+{
+protected:
+string	Style,type;
+	
+public:
+	furneture()
+	{
+		Style="";
+		type="";
+	}
+	furneture(string a,string b)
+	{
+		type=a;
+		Style=b;
+	}
+	string style(int a)
+	{
+		if(a==1)
+			return "Classic";
+		else if(a==2)
+		{
+			return "Modern";
+		}
+		else
+			{
+			cout<<"Wrong Entry"<<endl;return "";
+			}
+	}
+	void show()
+	{
+		cout<<"******************************"<<endl;
+		cout<<"********  FURNITURE   ********"<<endl;
+		cout<<"Type of wood"<<type<<"Style of furniture "<<Style<<endl;
+		cout<<"*******************************"<<endl;
+		cout<<"Thank You For Shoping"<<endl;
+		cout<<"*******************************"<<endl;
+		cout<<"Do you want futher (y/n)"<<endl;
+		cout<<"*******************************"<<endl;
+	    cout<<"*******************************"<<endl;
+	}
+};
+
+int main()
+{ char ch;
+	client_need *p;
+	int n,k; 
+	do
+	{
+
+	cout<<"******************************"<<endl;
+	cout<<"******** FURNITURESHOP *******"<<endl;
+	//N variable for cin data for client and Warray is used to cin name of wood to client
+	cout<<"*****************************"<<endl;
+	cout<<"*******Enter data************"<<endl;
+	cout<<"*****************************"<<endl;
+	cout<<"What you want to built?"<<endl;
+	cout<<"*****************************"<<endl;
+	cout<<"(1) for Furneture"<<endl;
+	cout<<"(2) for Windows"<<endl;
+	cout<<"(3) for Doors"<<endl;
+	cout<<"(4) for cabnites for kicten"<<endl;
+	cin>>n;
+	cout<<"*****************************"<<endl;
+	cout<<"*****************************"<<endl;
+	system("cls");
+	
+		if(n==1)
+		{
+	cout<<"********************************"<<endl;
+	cout<<"What type of wood you want use? "<<endl;
+	cout<<"********************************"<<endl;
+	cout<<"(1) for Cedar Wood"<<endl;								//deodar ki lakre
+	cout<<"(2) for Walnut Wood"<<endl;								//Akhroot ki lakre
+	cout<<"(3) for Oak Wood"<<endl;									//Blaoot ki lakree
+	cout<<"(4) for Teak Wood"<<endl;								//Sagoon ki lakree
+	cin>>k;
+	cout<<"********************************"<<endl;
+	cout<<"********************************"<<endl;
+	cout<<"Enter style of furniture : "<<endl;
+	cout<<"********************************"<<endl;
+	cout<<"(1) for classic"<<endl;
+	cout<<"(2) for modern"<<endl;
+	int a;
+	cin>>a;
+	cout<<"********************************"<<endl;
+	system("cls");
+
+	furneture f,f1(f.settype_of_wood(k),f.style(a));
+	p=&f1;
+	p->show();
+	
+		}
+		else if(n==2)
+		{
+			int q;float l,w;
+	cout<<"***********************************"<<endl;
+	cout<<"***********************************"<<endl;
+	cout<<"What type of wood you want use? "<<endl;
+	cout<<"***********************************"<<endl;
+	cout<<"(1) for Cedar Wood"<<endl;
+	cout<<"(2) for Walnut Wood"<<endl;
+	cout<<"(3) for Oak Wood"<<endl;											
+	cout<<"(4) for Teak Wood"<<endl;										
+	cin>>k;
+	cout<<"How much windows you want?"<<endl;
+	cin>>q;
+	system("cls");
+	cout<<"Enter the length of windows in inches:"<<endl;
+	cin>>l;
+	system("cls");
+	cout<<"Enter the width of the windows in inches:"<<endl;
+	cin>>w;
+	system("cls");
+	cout<<"**********************************************************************"<<endl;
+
+	window obj,obj1(obj.settype_of_wood(k),q,l,w);
+	obj1.setPrice();
+	p=&obj1;
+	p->show();
+
+
+		}
+		else if(n==3)
+		{
+			float l,w;
+	cout<<"***********************************"<<endl;
+	cout<<"***********************************"<<endl;
+	cout<<"What type of wood you want use? "<<endl;
+	cout<<"***********************************"<<endl;
+	cout<<"(1) Cedar Wood"<<endl;
+	cout<<"(2) Walnut Wood"<<endl;
+	cout<<"(3) Oak Wood"<<endl;
+	cout<<"(4) Teak Wood"<<endl;
+	cin>>k;
+	
+	int d;												//d variable is used to get no of doors he want to built
+	cout<<"How much Doors you want to built? "<<endl;
+	cin>>d;
+	system("cls");
+
+	cout<<"Enter the length of door in inches:"<<endl;
+	cin>>l;
+	system("cls");
+
+	cout<<"Enter the width of the door in inches:"<<endl;
+	cin>>w;
+	system("cls");
+
+	cout<<"**********************************************************************"<<endl;
+	
+	Doors obj1,obj(obj1.settype_of_wood(k),d,l,w);
+	obj.setPrice();
+	p=&obj;
+	p->show();
+
+		}
+		
+		else if(n==4)
+		{
+			float l,w;
+	cout<<"***********************************"<<endl;
+	cout<<"***********************************"<<endl;
+	cout<<"What type of wood you want use? "<<endl;
+	cout<<"***********************************"<<endl;
+	cout<<"(1) Cedar Wood"<<endl;
+	cout<<"(2) Walnut Wood"<<endl;
+	cout<<"(3) Oak Wood"<<endl;
+	cout<<"(4) Teak Wood"<<endl;
+	cin>>k;
+	
+	int d;		
+										//d variable is used to get no of cabinets he want to built
+	cout<<"cabinets Have standars size of 45 inches length and 45 inches width ";cout<<endl;
+	cout<<"How much cabinets you want to built? "<<endl;
+	cin>>d;
+
+	cout<<"**********************************************************************"<<endl;
+
+	
+	cabinets obj1,obj(obj1.settype_of_wood(k),d);
+	obj.setPrice();
+	p=&obj;
+	p->show();
+	
+		}
+		
+		system("pause");
+		cin>>ch;
+		cout<<"*********************************************"<<endl<<endl<<endl;
+		system("cls");
+		}while(ch=='y');
+	}
+	
+	
